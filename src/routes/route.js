@@ -32,4 +32,25 @@ router.get('/GET/films', function(req,res){
        }]
     res.send(arrFilms)
 })
+router.get('/GET/films/:filmId', function(req,res){
+    let arrFilms=[ {
+        id: 1,
+        name: 'The Shining'
+       },
+       {
+        id: 2,
+        name: 'Incendies'
+       },
+       {
+        id: 3,
+        name: 'Rang de basanti'
+       },
+       {
+        id: 4,
+        name: 'Finding Nemo'
+       }]
+    let temp=req.params.filmId
+    let id=Number(temp)-1
+    res.send(arrFilms[id])
+})
 module.exports = router;
