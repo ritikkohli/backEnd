@@ -27,13 +27,17 @@ let players=[
 
 router.post('/player',function(req,res){
     let newPlayer=req.body
+    let isPlayerExist=false
     for(let i=0;i<players.length;i++){
         if(players[i].name===newPlayer.name){
+            isPlayerExist=true
             res.send("Already exist.")
-         
+            break
         }        
     }
+    if(isPlayerExist=false){
     players.push(newPlayer)
+    }
     res.send( { data: players , status: true } )
 })
 
