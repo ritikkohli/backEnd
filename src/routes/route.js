@@ -1,44 +1,45 @@
 const express = require('express');
 const abc = require('../introduction/intro')
 const router = express.Router();
-let players=[
+let persons=[
     {
-        "name": "manish",
-        "dob": "1/1/1995",
-        "gender": "male",
-        "city": "jalandhar",
-        "sports": ["swimming"]
+        "name": "PK",
+        "age": 10,
+        "votingStatus": false
     },
     {
-        "name": "gopal",
-        "dob": "1/09/1995",
-        "gender": "male",
-        "city": "delhi",
-        "sports": ["soccer"]
+        "name": "SK",
+        "age": 20,
+        "votingStatus": false
     },
     {
-        "name": "lokesh",
-        "dob": "1/1/1990",
-        "gender": "male",
-        "city": "mumbai",
-        "sports": ["soccer"]
+        "name": "AA",
+        "age": 70,
+        "votingStatus": false
+    },
+    {
+        "name": "SC",
+        "age": 5,
+        "votingStatus": false
+    },
+    {
+        "name": "HO",
+        "age": 40,
+        "votingStatus": false
     }
 ]
 
-router.post('/player',function(req,res){
-    let newPlayer=req.body
-    let isPlayerExist=false
-    for(let i=0;i<players.length;i++){
-        if(players[i].name===newPlayer.name){
-            isPlayerExist=true
-            res.send("Already exist.")
-            break
+router.post('/persons',function(req,res){
+    let votingAge=Number(req.query.votingAge)
+    let voter=[]
+    for(let i=0;i<persons.length;i++){
+        if(persons[i].age>=votingAge){
+            persons[i].votingStatus=true
+            voter.push(persons[i])
         }        
     }
-    if(isPlayerExist===false){
-        players.push(newPlayer)
-    }
-    res.send( { data: players , status: true } )
+    // res.send( { data: persons , status: true } )
+    res.send(voter)
 })
 
 module.exports = router;
