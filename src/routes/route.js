@@ -35,8 +35,8 @@ router.post('/player',function(req,res){
             break
         }        
     }
-    if(isPlayerExist=false){
-    players.push(newPlayer)
+    if(isPlayerExist===false){
+        players.push(newPlayer)
     }
     res.send( { data: players , status: true } )
 })
