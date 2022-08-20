@@ -5,15 +5,11 @@ const authorController= require("../controllers/authorController")
 const bookController= require("../controllers/bookController")
 const publisherController= require("../controllers/publisherController")
 
-router.post("/createAuthor", authorController.createAuthor  )
-
+router.post("/createAuthor", authorController.createAuthor)
 router.post("/createPublisher", publisherController.createPublisher)
-
-router.post("/createBook", bookController.createBook  )
-
+router.post("/createBook", bookController.createBook)
 router.get("/getBooks", bookController.getBooks)
-
-router.put("/updateBooks", bookController.updateBooks)
-// router.get("/getBooksWithAuthorDetails", bookController.getBooksWithAuthorDetails)
+router.put("/updateBooks", bookController.updateHardcover)
+router.put("/updateBooks", bookController.updatePrice)
 
 module.exports = router;
