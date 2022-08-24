@@ -8,4 +8,8 @@ router.post("/bookByAuthor",bookController.bookByAuthor)
 router.post("/updatePriceAndGetAuthor",bookController.updatePriceAndGetAuthor)
 router.post("/bookByCost",bookController.bookByCost)
 
+router.post("/test-middleware", function(req,res){
+    res.send("API to test our middleware")
+})
+
 module.exports = router;
