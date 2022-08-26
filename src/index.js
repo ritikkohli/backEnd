@@ -11,17 +11,17 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(function(req,res,next){
-    let timestamp = new Date()
-    console.log(timestamp,req.ip,req.path)
-})
+// app.use(function(req,res,next){
+//     let timestamp = new Date()
+//     console.log(timestamp,req.ip,req.path)
+// })
 
 app.use('/', route);
 
 app.listen(process.env.PORT || 3000, function() {
     console.log('Express app running on port ' + (process.env.PORT || 3000))
 });
-mongoose.connect("mongodb+srv://ritikkohli:T59sBR3OUA1cDugL@cluster0.gd4mqlp.mongodb.net/ritik",{
+mongoose.connect("mongodb+srv://ritikkohli:eJ9TDANLzfmCixVu@cluster0.gd4mqlp.mongodb.net/ritik",{
     useNewUrlParser:true
 })
 .then(()=>console.log("MongoDB is connected"))
