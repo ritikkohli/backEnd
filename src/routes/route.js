@@ -1,12 +1,12 @@
 const express = require('express');
 const userController = require('../controller/userController.js')
-const productController = require('../controller/productController.js')
-const orderController = require('../controller/orderController.js')
-const validator = require('../middleware/validator.js')
+const auth = require('../middleware/auth.js')
 const router = express.Router()
 
-router.post("/createProduct", productController.createProduct)
-router.post("/createUser", validator.isHeaderPresent, userController.createUser)
-router.post("/createOrder", validator.isHeaderPresent, orderController.createOrder)
+router.post("/registerUser", userController.createUser)
+router.post("/logIn", userController.logIn)
+router.get("/user/:userId",auth.validator,userController.fetchUser)
+router.put("/user/:userId", auth.validator, userController.updateUser)
+router.delete("/user/:userId", auth.validator, userController.deleteUser)
 
 module.exports = router;

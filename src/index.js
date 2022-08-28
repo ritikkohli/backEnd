@@ -5,16 +5,9 @@ const route = require('./routes/route.js');
 const { default: mongoose } = require('mongoose');
 const app = express();
 
-
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(function(req,res,next){
-//     let timestamp = new Date()
-//     console.log(timestamp,req.ip,req.path)
-// })
 
 app.use('/', route);
 
