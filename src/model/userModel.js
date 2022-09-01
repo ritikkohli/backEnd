@@ -4,7 +4,10 @@ const userSchema = new mongoose.Schema({
     firstName : String,
     lastName : String,
     mobile : String,
-    emailId : String,
+    emailId : {
+        type:String,
+        required:true
+    },
     password : String,
     gender : String,
 	isDeleted:{
